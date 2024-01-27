@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
+const { connect } = require('./db/config')
 const app = express();
 
 // middlewares
@@ -20,6 +21,7 @@ then we are moving forward
 const PORT = process.env.PORT || 3000;
 (async function () {
     try {
+        await connect()
         app.listen(PORT, function () {
             console.log('server is listening at port', PORT);
         });
