@@ -1,0 +1,37 @@
+# Ignore artifacts:
+/dist/
+/build/
+/out/
+
+# Node modules and dependencies:
+/node_modules/
+
+# Version control systems:
+.git
+.svn
+.hg
+
+# Logs and databases:
+*.log
+*.sql
+*.sqlite
+
+# OS generated files:
+.DS_Store
+Thumbs.db
+
+# Build directories:
+/public/
+
+# Ignore specific minified files and directories:
+*.min.js
+*.min.css
+
+# Common directories for generated files:
+/generated/
+/coverage/
+
+# Ignore specific files (examples):
+.env
+/package-lock.json
+/yarn.lock
