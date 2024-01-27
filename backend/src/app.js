@@ -11,8 +11,8 @@ const app = express();
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-app.use(cookieParser());
+app.use(cors(process.env.COOKIE_SIGN));
+app.use(cookieParser(process.env.COOKIE_SIGN));
 
 // api routes
 app.use('/api/v1/user', require('./routes/user.route'))
