@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require('sequelize');
 const { sequelize } = require('../db/config');
+const { hashPassword, comparePassword } = require('../utils/hashPassword');
 
 class User extends Model {}
 
@@ -53,6 +54,9 @@ User.init(
                     msg: 'password must be in between 6 to 12 characters',
                 },
             },
+            set(value) {
+                this.setDataValue('password', hashPassword(value))
+            },
         },
     },
     {
@@ -70,6 +74,10 @@ User.init(
         console.log('Unable to sync User model', error);
     }
 })();
+
+User.prototype.compareEnteredPassword = async function(password){
+    return await comparePassword(password, this.password)
+}
 
 module.exports = {
     User,
