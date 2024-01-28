@@ -6,6 +6,7 @@ function sendAccessCookie(data, res) {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         signed: true,
+        // cookie will expire in 1 day
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
     });
 }
@@ -16,7 +17,8 @@ function sendRefreshCookie(data, res) {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         signed: true,
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+        // cookie will expire in 10 days
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 10),
     });
 }
 

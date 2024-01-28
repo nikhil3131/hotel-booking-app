@@ -43,6 +43,9 @@ User.init(
                 },
             },
         },
+        refreshToken: {
+            type: DataTypes.STRING,
+        },
     },
     {
         sequelize,
