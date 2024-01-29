@@ -44,7 +44,7 @@ User.init(
             },
         },
         refreshToken: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
     },
     {
